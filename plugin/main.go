@@ -4,10 +4,14 @@ import (
 	"fmt"
 
 	s3ds "github.com/ipfs-s3c-storj-plugin"
-	"gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/plugin"
-	"gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/repo"
-	"gx/ipfs/QmUJYo4etAQqFfSS2rarFAE97eNGB8ej64YkRT2SmsYD4r/go-ipfs/repo/fsrepo"
+	"gx/ipfs/QmR8vaEmxiNsH1rTRb6vKWKHQNP1WQfEL8KsKSVjKKJAa7/go-ipfs/plugin"
+	"gx/ipfs/QmR8vaEmxiNsH1rTRb6vKWKHQNP1WQfEL8KsKSVjKKJAa7/go-ipfs/repo"
+	"gx/ipfs/QmR8vaEmxiNsH1rTRb6vKWKHQNP1WQfEL8KsKSVjKKJAa7/go-ipfs/repo/fsrepo"
 )
+
+var Plugins = []plugin.Plugin{
+	&S3Plugin{},
+}
 
 var _ plugin.PluginDatastore = (*S3Plugin)(nil)
 
