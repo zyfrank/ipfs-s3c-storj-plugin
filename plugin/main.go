@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	s3ds "github.com/ipfs-s3c-storj-plugin"
-	"gx/ipfs/QmR8vaEmxiNsH1rTRb6vKWKHQNP1WQfEL8KsKSVjKKJAa7/go-ipfs/plugin"
-	"gx/ipfs/QmR8vaEmxiNsH1rTRb6vKWKHQNP1WQfEL8KsKSVjKKJAa7/go-ipfs/repo"
-	"gx/ipfs/QmR8vaEmxiNsH1rTRb6vKWKHQNP1WQfEL8KsKSVjKKJAa7/go-ipfs/repo/fsrepo"
+	"github.com/ipfs/go-ipfs/plugin"
+	"github.com/ipfs/go-ipfs/repo"
+	"github.com/ipfs/go-ipfs/repo/fsrepo"
 )
 
 var Plugins = []plugin.Plugin{
