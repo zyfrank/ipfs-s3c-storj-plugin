@@ -13,7 +13,7 @@ just check https://github.com/zyfrank/go-ipfs, https://github.com/zyfrank/go-ipf
 
 make install
 
-./build/ipfs init --profile s3-storjds
+./build/ipfs init --profile s3c-storjds
 
 change $IPFS_PATH/config (commonly it is ~/.ipfs/config),  input your "accessKey" and "secretKey" which are used to access storj s3 gateway
 
