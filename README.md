@@ -9,7 +9,7 @@ cd $GOPATH/src/github.com/ipfs-s3c-storj-plugin
 
 gx install --local 
 (here I personnally gx publish 3 ipfs packages:go-ipfs-config,go-ipfs and iptb.  maybe in your site it is hard to get these three packages
-just check )
+just check https://github.com/zyfrank/go-ipfs, https://github.com/zyfrank/go-ipfs-config and https://github.com/zyfrank/iptb, clone to your local env. ,switch to branch storj-s3c-plugin, then use gx publish -f to your local IPFS node, so gx install --local can find these three packages)
 
 make install
 
