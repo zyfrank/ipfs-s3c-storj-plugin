@@ -17,6 +17,6 @@ change $IPFS_PATH/config (commonly it is ~/.ipfs/config),  input your "accessKey
 
 start your test storj env. by using storj-sim network run
 
-when you use ./build/ipfs add *, the file will be feed to storj
+when you use ./build/ipfs add *, the file will be fed to storj
 
 
