@@ -1,5 +1,5 @@
 IPFS_PATH ?= ${HOME}/.ipfs
-IPFSVERSION = QmVW2X4U9QBYetpW49jKAt5csiCDZvogGqTUQRNhPGirAz
+IPFSVERSION = QmPDEJTb3WBHmvubsLXCaqRPC8dRgvFz7A4p96dxZbJuWL
 IPFSCMDBUILDPATH=vendor/gx/ipfs/$(IPFSVERSION)/go-ipfs/cmd/ipfs
 REPOROOT=$(shell pwd)
 deps:

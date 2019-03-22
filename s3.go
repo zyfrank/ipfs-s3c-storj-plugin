@@ -13,13 +13,13 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
-	ds "gx/ipfs/QmaRb5yNXKonhbkpNxNawoydk4N6es6b4fPj19sjEKsh5D/go-datastore"
-	dsq "gx/ipfs/QmaRb5yNXKonhbkpNxNawoydk4N6es6b4fPj19sjEKsh5D/go-datastore/query"
+	ds "gx/ipfs/QmUadX5EcvrBmxAV9sE7wUWtWSqxns5K84qKJBixmcT1w9/go-datastore"
+	dsq "gx/ipfs/QmUadX5EcvrBmxAV9sE7wUWtWSqxns5K84qKJBixmcT1w9/go-datastore/query"
 )
 
 const (
 	// listMax is the largest amount of objects you can request from S3 in a list
-	// call.QmaRb5yNXKonhbkpNxNawoydk4N6es6b4fPj19sjEKsh5D
+	// call.QmUadX5EcvrBmxAV9sE7wUWtWSqxns5K84qKJBixmcT1w9
 	listMax = 1000
 
 	// deleteMax is the largest amount of objects you can delete from S3 in a
@@ -42,8 +42,6 @@ type Config struct {
 	Region        string
 	Endpoint      string
 	RootDirectory string
-	LogPath       string
-	Secure        bool
 	Workers       int
 }
 
@@ -58,7 +56,7 @@ func NewS3Datastore(conf Config) (*S3Bucket, error) {
 		Credentials:      credentials.NewStaticCredentials(conf.AccessKey, conf.SecretKey, ""),
 		Endpoint:         aws.String(conf.Endpoint),
 		Region:           aws.String(conf.Region),
-		DisableSSL:       aws.Bool(conf.Secure),
+//		DisableSSL:       aws.Bool(conf.Secure),
 		S3ForcePathStyle: aws.Bool(true),
 	}
 	s3Session, err := session.NewSession(s3Config)
