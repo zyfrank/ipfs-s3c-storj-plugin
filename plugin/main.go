@@ -117,5 +117,14 @@ func (s3c *S3Config) DiskSpec() fsrepo.DiskSpec {
 }
 
 func (s3c *S3Config) Create(path string) (repo.Datastore, error) {
-	return s3ds.NewS3Datastore(s3c.cfg)
+	d, err :=s3ds.NewS3Datastore(s3c.cfg)
+	if err != nil {
+		return nil, err
+	}
+	if err := d.BucketExists(s3c.cfg.Bucket); err != nil {
+		if err := d.CreateBucket(s3c.cfg.Bucket); err != nil {
+			return nil, err
+		}
+	}
+	return d, nil
 }
