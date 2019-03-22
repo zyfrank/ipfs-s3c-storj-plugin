@@ -87,20 +87,20 @@ func DsConfigHandler(m map[string]interface{}) (fsrepo.DatastoreConfig, error) {
 
 	return &S3Config{
 		cfg: s3ds.Config{
-			Region:         region,
-			Bucket:         bucket,
-			AccessKey:      accessKey,
-			SecretKey:      secretKey,
-			Endpoint:       endpoint,
-		//	SessionToken:   sessionToken,
-			RootDirectory:  rootDirectory,
-			Workers:        workers,
-		//	RegionEndpoint: endpoint,
+			Region:    region,
+			Bucket:    bucket,
+			AccessKey: accessKey,
+			SecretKey: secretKey,
+			Endpoint:  endpoint,
+			//	SessionToken:   sessionToken,
+			RootDirectory: rootDirectory,
+			Workers:       workers,
+			//	RegionEndpoint: endpoint,
 		},
 	}, nil
 }
-func (s3p S3Plugin) DatastoreConfigParser() fsrepo.ConfigFromMap{
-	return DsConfigHandler;
+func (s3p S3Plugin) DatastoreConfigParser() fsrepo.ConfigFromMap {
+	return DsConfigHandler
 }
 
 type S3Config struct {
@@ -111,13 +111,13 @@ func (s3c *S3Config) DiskSpec() fsrepo.DiskSpec {
 	return fsrepo.DiskSpec{
 		"bucket":        s3c.cfg.Bucket,
 		"region":        s3c.cfg.Region,
-        "endpoint":      s3c.cfg.Endpoint,
+		"endpoint":      s3c.cfg.Endpoint,
 		"rootDirectory": s3c.cfg.RootDirectory,
 	}
 }
 
 func (s3c *S3Config) Create(path string) (repo.Datastore, error) {
-	d, err :=s3ds.NewS3Datastore(s3c.cfg)
+	d, err := s3ds.NewS3Datastore(s3c.cfg)
 	if err != nil {
 		return nil, err
 	}

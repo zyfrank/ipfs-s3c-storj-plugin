@@ -1,11 +1,11 @@
 package main
 
 import (
-	"os"
 	config "gx/ipfs/QmUAuYuiafnJRZxDDX7MuruMNsicYNuyub5vUeAcupUBNs/go-ipfs-config"
+	"os"
 )
 
-var profile config.Profile  = config.Profile {
+var profile config.Profile = config.Profile{
 	Description: "Replaces default datastore config with experimental storj",
 	Transform: func(c *config.Config) error {
 		c.Datastore.Spec = map[string]interface{}{

@@ -37,7 +37,7 @@ type S3Bucket struct {
 type Config struct {
 	AccessKey string
 	SecretKey string
-//	SessionToken   string
+	//	SessionToken   string
 	Bucket        string
 	Region        string
 	Endpoint      string
@@ -50,20 +50,20 @@ func NewS3Datastore(conf Config) (*S3Bucket, error) {
 		conf.Workers = defaultWorkers
 	}
 
-// Configure to use Minio Server
+	// Configure to use Minio Server
 	s3Config := &aws.Config{
- // TODO: determine if we need session token
-		Credentials:      credentials.NewStaticCredentials(conf.AccessKey, conf.SecretKey, ""),
-		Endpoint:         aws.String(conf.Endpoint),
-		Region:           aws.String(conf.Region),
-//		DisableSSL:       aws.Bool(conf.Secure),
+		// TODO: determine if we need session token
+		Credentials: credentials.NewStaticCredentials(conf.AccessKey, conf.SecretKey, ""),
+		Endpoint:    aws.String(conf.Endpoint),
+		Region:      aws.String(conf.Region),
+		//		DisableSSL:       aws.Bool(conf.Secure),
 		S3ForcePathStyle: aws.Bool(true),
 	}
 	s3Session, err := session.NewSession(s3Config)
 	if err != nil {
 		return nil, err
 	}
-		
+
 	return &S3Bucket{
 		S3:     s3.New(s3Session),
 		Config: conf,
@@ -221,7 +221,6 @@ type batchOp struct {
 	val    []byte
 	delete bool
 }
-
 
 func (b *s3Batch) Put(k ds.Key, val []byte) error {
 	b.ops[k.String()] = batchOp{
